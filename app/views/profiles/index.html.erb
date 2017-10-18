@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Profiles</h1>
+
+<% @profiles.each do |profile| %>
+  <% if profile.profile_image.present? %>
+  <%= image_tag profile.profile_image_url(:thumb) %>
+  <% end %>
+  <%= profile.username %>
+  <%= profile.first_name %>
+  <%= profile.last_name %>
+  <%= link_to 'Show', profile %>
+  <%= link_to 'Edit', edit_profile_path(profile) %>
+  <%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+<% end %>
+
+
+<br>
+
+<%= link_to 'New Profile', new_profile_path %>
